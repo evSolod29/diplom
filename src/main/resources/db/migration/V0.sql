@@ -1,0 +1,6 @@
+create sequence hibernate_sequence start with 1 increment by 1
+create table additional_equipments (id bigint not null, computer_id bigint not null, inv_no bigint not null, name nvarchar(255) not null, type nvarchar(255) not null, primary key (id))
+create table computers (id bigint not null, build_in_monitor bit not null, cd_rom bit not null, commissioning_date datetime2 not null, cpu nvarchar(255) not null, inv_no bigint not null, movement nvarchar(255), name nvarchar(255) not null, ram nvarchar(255) not null, rom nvarchar(255) not null, subdivision nvarchar(255) not null, videocard nvarchar(255) not null, primary key (id))
+create table repairs (id bigint not null, computer_id bigint not null, end_date datetime2, start_date datetime2 not null, primary key (id))
+alter table additional_equipments add constraint FKaliv6vljv4s49x4s2wpc5ksi5 foreign key (computer_id) references computers
+alter table repairs add constraint FKcc74qukblenngk4bqg25fg7qq foreign key (computer_id) references computers
