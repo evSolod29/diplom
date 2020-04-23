@@ -4,7 +4,7 @@
     <a href="/computers/">Назад</a>
     <a href="/computers/delete/${computer.id?c}">Удалить</a>
     <a href="/computers/edit/${computer.id?c}">Изменить</a>
-    <button value="${computer.id?c}" id="add-repair">Добавить запись о начале ремонта</button>
+    <button class="btn" value="${computer.id?c}" id="add-repair">Добавить запись о начале ремонта</button>
 </div>
 <div class="card border-dark mb-3" >
     <!--<div class="card-header">Header</div>-->
