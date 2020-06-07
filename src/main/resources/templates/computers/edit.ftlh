@@ -75,69 +75,17 @@
 <script>
     $(document).ready(function(){
         //First row
-        $("#invNo").on("keyup", function(){
-            let value = $(this).val();
-            if(value.match(/^-{0,1}\d+$/)){
-                $("#invNo").removeClass("is-invalid");
-                $("#invNo").addClass("is-valid");
-            } else{
-                $("#invNo").addClass("is-invalid");
-                $("#invNo").removeClass("is-valid");
-            }
-        });
-        //Second row
-        textValidation($("#name"))
-        //Third row
-        textValidation($("#subdivision"))
-        //commissioningDateStr
-        $("#commissioningDateStr").on("keyup", function(){
-            let value = $(this).val();
-            if(!isNaN(Date.parse(value)) && value.match(/^(\d{4})-(\d\d?)-(\d\d?)$/)){
-                $("#commissioningDateStr").removeClass("is-invalid");
-                $("#commissioningDateStr").addClass("is-valid");
-            } else{
-                $("#commissioningDateStr").addClass("is-invalid");
-                $("#commissioningDateStr").removeClass("is-valid");
-            }
-        });
-        //CPU
-        textValidation($("#cpu"))
-        //RAM
-        textValidation($("#ram"))
-        //ROM
-        textValidation($("#rom"))
-        //Videocard
-        textValidation($("#videocard"))
-        //Enable button if all row is valid
-        $("input").on("keyup", function(){
-            let counter = 0;
-            let tmp = $('.required');
-            for (let i = 0; i < $('.required').length; i++) {
-                if(tmp.eq(i).hasClass('is-valid')){
-                    counter++;
-                } else {
-                    counter--;
-                }
-            }
-            if(counter == 8){
-                    $("#submit-btn").removeAttr('disabled');
-                } else{
-                    $("#submit-btn").attr('disabled',true);
-                }
-            //console.log(ii);
-        });
+        correct_input([
+            ["int","#invNo"],
+            ["text","#name"],
+            ["text","#subdivision"],
+            ["date", "#commissioningDateStr"],
+            ["text","#cpu"],
+            ["text","#ram"],
+            ["text","#rom"],
+            ["text","#videocard"],
+            ["","#movement"]
+        ], "#submit-btn");
     });
-function textValidation(selector) {
-    selector.on("keyup", function(){
-        let value = $(this).val();
-        if(value.trim() != ''){
-            selector.removeClass("is-invalid");
-            selector.addClass("is-valid");
-        } else{
-            selector.addClass("is-invalid");
-            selector.removeClass("is-valid");
-        }
-    });
-}
 </script>
 </@c.page>

@@ -4,7 +4,7 @@
     <a href="/computers/">Назад</a>
     <a href="/computers/delete/${computer.id?c}">Удалить</a>
     <a href="/computers/edit/${computer.id?c}">Изменить</a>
-    <button class="btn" value="${computer.id?c}" id="add-repair">Добавить запись о начале ремонта</button>
+    <a href="#" id="add-repair">Отправить в ремонт</a>
 </div>
 <div class="card border-dark mb-3" >
     <!--<div class="card-header">Header</div>-->
@@ -47,13 +47,13 @@ function addRepair()
 {
     $("#add-repair").click(function()
     {
-        let id = $("#add-repair").val();
+        let id = "${computer.id?c}"
         console.log(id);
         $.ajax
         ({
             url:"/repair/addrepair",
             type:"POST",
-            data:{id : id},
+            data:{computerid : id},
             contentType:"application/x-www-form-urlencoded; charset=UTF-8",
             success: function()
             {
