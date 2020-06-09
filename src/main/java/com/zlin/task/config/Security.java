@@ -33,7 +33,7 @@ public class Security extends WebSecurityConfigurerAdapter {
                     .antMatchers("/admin/**").hasRole("ADMIN")
                     .antMatchers("/news").hasRole("USER")
                     //Доступ разрешен всем пользователей
-                    .antMatchers("/", "/css/**", "/js/**", "/img/**", "/computers/details/**","/repair/**", "/computers/").permitAll()
+                    .antMatchers("/", "/css/**", "/js/**", "/img/**", "/computers/details/**","/processes/**", "/computers/**").permitAll()
                 //Все остальные страницы требуют аутентификации
                 .anyRequest().authenticated()
                 .and()

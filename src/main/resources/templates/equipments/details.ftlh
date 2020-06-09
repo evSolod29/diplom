@@ -22,7 +22,7 @@
                 ${equipment.type}<br><br>
                 <h5>Закреплено за</h5>
                 <#if equipment.computer?has_content>
-                <a href="/computers/details/${equipment.computer.id}">${equipment.computer.name}</a><br><br>
+                <a href="//computers/details/${equipment.computer.id}">${equipment.computer.name}</a><br><br>
                 <#else>
                 Не закреплен за компьютером
                 </#if>

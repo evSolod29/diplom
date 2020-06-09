@@ -49,6 +49,9 @@ public class Equipment {
     @OneToMany(mappedBy = "equipment", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Repair> repairs = new HashSet<Repair>();
 
+    @OneToMany(mappedBy = "equipment", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private Set<Process> processes  = new HashSet<Process>();
+
     public Equipment() {
     }
 

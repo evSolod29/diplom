@@ -13,7 +13,7 @@
                 <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <#if active_link == 2> active</#if>" href="/repair/">Журнал ремонта</a>
+                <a class="nav-link <#if active_link == 2> active</#if>" href="/processes/">Журнал бизнес-процессов</a>
             </li>
             <li class="nav-item dropdown <#if active_link == 3> active</#if>" style="border:none;">
                 <a class="nav-link dropdown-toggle" style="border:none;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
