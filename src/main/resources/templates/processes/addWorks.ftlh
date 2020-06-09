@@ -71,6 +71,7 @@
                     $("form").trigger('reset');
                     $("#userId").prop('selectedIndex',0);
                     $(".filter-option-inner-inner").html("Не выбрано");
+                    $("#preWorkId").attr("value", data);
                     if(counter == count-1){
                         $("#submit-bt").html("Закончить"); 
                     }
