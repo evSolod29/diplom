@@ -28,9 +28,6 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Repair> repairs;
-
     public User() {
     }
 
@@ -128,19 +125,4 @@ public class User implements UserDetails {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    /**
-     * @return Set<Repair> return the repairs
-     */
-    public Set<Repair> getRepairs() {
-        return repairs;
-    }
-
-    /**
-     * @param repairs the repairs to set
-     */
-    public void setRepairs(Set<Repair> repairs) {
-        this.repairs = repairs;
-    }
-
 }

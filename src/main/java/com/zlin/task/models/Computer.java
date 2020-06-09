@@ -77,9 +77,6 @@ public class Computer {
     @OneToMany(mappedBy = "computer", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Equipment> additionalEquipments = new HashSet<Equipment>();
 
-    @OneToMany(mappedBy = "comp", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    private Set<Repair> repairs = new HashSet<Repair>();
-
     public long getId() {
         return this.id;
     }
@@ -176,14 +173,6 @@ public class Computer {
 
     public void setVideocard(String videocard) {
         this.videocard = videocard;
-    }
-
-    public Set<Repair> getRepairs() {
-        return this.repairs;
-    }
-
-    public void setRepairs(Set<Repair> repairs) {
-        this.repairs = repairs;
     }
 
 }
