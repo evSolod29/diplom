@@ -22,7 +22,7 @@ public class Subprocess {
     private String subprocessName;
     
     @Nationalized
-    // @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String taskDescription;
 
     @ManyToOne(fetch = FetchType.EAGER)
