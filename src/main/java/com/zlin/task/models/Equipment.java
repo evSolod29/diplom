@@ -1,6 +1,8 @@
 package com.zlin.task.models;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -43,6 +45,9 @@ public class Equipment {
     @JoinColumn(name = "computerId", nullable = true, updatable = false, insertable = false)
     private Computer computer;
     private Long computerId;
+
+    @OneToMany(mappedBy = "equipment", orphanRemoval = true)
+    private Set<Task> tasks = new HashSet<Task>();
 
     public Equipment() {
     }
@@ -138,6 +143,21 @@ public class Equipment {
      */
     public void setMovement(String movement) {
         this.movement = movement;
+    }
+
+
+    /**
+     * @return Set<Task> return the tasks
+     */
+    public Set<Task> getTasks() {
+        return tasks;
+    }
+
+    /**
+     * @param tasks the tasks to set
+     */
+    public void setTasks(Set<Task> tasks) {
+        this.tasks = tasks;
     }
 
 }

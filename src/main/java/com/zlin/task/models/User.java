@@ -25,7 +25,7 @@ public class User implements UserDetails {
     @Transient
     private String passwordConfirm;
     
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", orphanRemoval = true)
     private Set<SubprocessReport> subprocessReports;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -128,4 +128,19 @@ public class User implements UserDetails {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    /**
+     * @return Set<SubprocessReport> return the subprocessReports
+     */
+    public Set<SubprocessReport> getSubprocessReports() {
+        return subprocessReports;
+    }
+
+    /**
+     * @param subprocessReports the subprocessReports to set
+     */
+    public void setSubprocessReports(Set<SubprocessReport> subprocessReports) {
+        this.subprocessReports = subprocessReports;
+    }
+
 }

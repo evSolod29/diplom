@@ -77,6 +77,9 @@ public class Computer {
     @OneToMany(mappedBy = "computer", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Equipment> additionalEquipments = new HashSet<Equipment>();
 
+    @OneToMany(mappedBy = "computer", orphanRemoval = true)
+    private Set<Task> tasks = new HashSet<Task>();
+
     public long getId() {
         return this.id;
     }
@@ -173,6 +176,49 @@ public class Computer {
 
     public void setVideocard(String videocard) {
         this.videocard = videocard;
+    }
+
+
+    /**
+     * @return boolean return the cdRom
+     */
+    public boolean isCdRom() {
+        return cdRom;
+    }
+
+    /**
+     * @return boolean return the buildInMonitor
+     */
+    public boolean isBuildInMonitor() {
+        return buildInMonitor;
+    }
+
+    /**
+     * @return Set<Equipment> return the additionalEquipments
+     */
+    public Set<Equipment> getAdditionalEquipments() {
+        return additionalEquipments;
+    }
+
+    /**
+     * @param additionalEquipments the additionalEquipments to set
+     */
+    public void setAdditionalEquipments(Set<Equipment> additionalEquipments) {
+        this.additionalEquipments = additionalEquipments;
+    }
+
+    /**
+     * @return Set<Task> return the tasks
+     */
+    public Set<Task> getTasks() {
+        return tasks;
+    }
+
+    /**
+     * @param tasks the tasks to set
+     */
+    public void setTasks(Set<Task> tasks) {
+        this.tasks = tasks;
     }
 
 }
