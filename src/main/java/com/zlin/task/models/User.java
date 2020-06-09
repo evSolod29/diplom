@@ -25,6 +25,9 @@ public class User implements UserDetails {
     @Transient
     private String passwordConfirm;
     
+    @OneToMany(mappedBy = "user")
+    private Set<SubprocessReport> subprocessReports;
+
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 

@@ -27,6 +27,11 @@ public class SubprocessReport {
     private Subprocess subprocess;
     private Long subprocessId;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userId", nullable = false, insertable = false, updatable = false)
+    private User user;
+    private Long userId;
+
     @Column(columnDefinition = "TEXT")
     private String report;
 
