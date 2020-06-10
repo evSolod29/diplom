@@ -28,7 +28,7 @@ public class BusinessProcess {
     private Date leadTime;
 
     @Nationalized
-    @Column(columnDefinition = "TEXT")
+    @Column(length = 2048)
     private String desription;
 
     /**

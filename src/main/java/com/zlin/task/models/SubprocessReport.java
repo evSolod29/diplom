@@ -34,7 +34,7 @@ public class SubprocessReport {
     private User user;
     private Long userId;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(length = 2048)
     private String report;
 
     @Enumerated(EnumType.ORDINAL)

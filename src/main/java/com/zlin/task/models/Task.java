@@ -1,8 +1,12 @@
 package com.zlin.task.models;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.Nationalized;
 
 @Entity
 @Table(name = "tasks")
@@ -11,6 +15,13 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Nationalized
+    private String name;
+
+    @Nationalized 
+    @Column(length = 2048)
+    private String description;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(
@@ -31,6 +42,9 @@ public class Task {
     @JoinColumn(name = "computerId", updatable = false, insertable = false)
     private Computer computer;
     private Long computerId;
+
+    @OneToMany(mappedBy = "task")
+    private Set<SubprocessReport> sReports = new HashSet<SubprocessReport>();
 
     @Enumerated(EnumType.ORDINAL)
     private StatusType statusType = StatusType.EXECUTION;
@@ -178,6 +192,49 @@ public class Task {
      */
     public void setPauseTime(Date pauseTime) {
         this.pauseTime = pauseTime;
+    }
+
+    /**
+     * @return String return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return String return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
+    /**
+     * @return Set<SubprocessReport> return the sReports
+     */
+    public Set<SubprocessReport> getSReports() {
+        return sReports;
+    }
+
+    /**
+     * @param sReports the sReports to set
+     */
+    public void setSReports(Set<SubprocessReport> sReports) {
+        this.sReports = sReports;
     }
 
 }
