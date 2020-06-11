@@ -1,7 +1,7 @@
 package com.zlin.task.models;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -31,8 +31,8 @@ public class Subprocess {
     private BusinessProcess businessProcess;
     private Long businessProcessId;
 
-    @OneToMany(mappedBy = "subprocess", orphanRemoval = true)
-    private Set<SubprocessReport> subprocessReports = new HashSet<SubprocessReport>();
+    @OneToMany(mappedBy = "subprocess", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SubprocessReport> subprocessReports = new ArrayList<SubprocessReport>();
 
     /**
      * @return Long return the id
@@ -121,14 +121,14 @@ public class Subprocess {
     /**
      * @return Set<SubprocessReport> return the subprocessReports
      */
-    public Set<SubprocessReport> getSubprocessReports() {
+    public List<SubprocessReport> getSubprocessReports() {
         return subprocessReports;
     }
 
     /**
      * @param subprocessReports the subprocessReports to set
      */
-    public void setSubprocessReports(Set<SubprocessReport> subprocessReports) {
+    public void setSubprocessReports(List<SubprocessReport> subprocessReports) {
         this.subprocessReports = subprocessReports;
     }
 

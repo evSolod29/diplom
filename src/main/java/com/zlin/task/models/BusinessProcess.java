@@ -19,10 +19,10 @@ public class BusinessProcess {
     @Nationalized
     private String name;
 
-    @OneToMany(mappedBy = "businessProcess", orphanRemoval = true)
+    @OneToMany(mappedBy = "businessProcess", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Task> tasks;
 
-    @OneToMany(mappedBy = "businessProcess", orphanRemoval = true)
+    @OneToMany(mappedBy = "businessProcess", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Subprocess> subprocesses = new HashSet<Subprocess>();
 
     private Date leadTime;

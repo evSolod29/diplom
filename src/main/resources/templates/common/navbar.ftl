@@ -13,7 +13,10 @@
                 <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <#if active_link == 2> active</#if>" href="/processes/">Журнал бизнес-процессов</a>
+                <a class="nav-link <#if active_link == 2> active</#if>" href="/reports/">Задачи</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <#if active_link == 3> active</#if>" href="/tasks/">Журнал процессов</a>
             </li>
             <li class="nav-item dropdown <#if active_link == 3> active</#if>" style="border:none;">
                 <a class="nav-link dropdown-toggle" style="border:none;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -32,7 +35,6 @@
                     Пользователи
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/users/">Все пользователи</a>
                     <a class="dropdown-item" href="/users/registration">Добавить пльзователя</a>
                 </div>
             </li>

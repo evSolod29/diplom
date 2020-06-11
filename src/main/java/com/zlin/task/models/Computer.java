@@ -74,10 +74,10 @@ public class Computer {
     }
     
 
-    @OneToMany(mappedBy = "computer", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(mappedBy = "computer", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Equipment> additionalEquipments = new HashSet<Equipment>();
 
-    @OneToMany(mappedBy = "computer", orphanRemoval = true)
+    @OneToMany(mappedBy = "computer", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Task> tasks = new HashSet<Task>();
 
     public long getId() {

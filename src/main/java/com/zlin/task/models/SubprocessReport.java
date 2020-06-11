@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Nationalized;
+
 @Entity
 @Table(name = "s_reports")
 public class SubprocessReport {
@@ -35,6 +37,7 @@ public class SubprocessReport {
     private Long userId;
 
     @Column(length = 2048)
+    @Nationalized
     private String report;
 
     @Enumerated(EnumType.ORDINAL)

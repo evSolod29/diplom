@@ -8,32 +8,16 @@
         <h3 class="card-title">Статистика</h3><br><br>
         <div class="row">
             <div class="col-sm">
-                <h5>Общее количество ремонтов</h5>
-                ${totalRepairs}<br><br>
-                <h5>Общее количество ремонтов(за месяц)</h5>
-                ${addRepairsMonth}<br><br>
-                <h5>Общее количество завершенных ремонтов(за месяц)</h5>
-                ${endRepairsMonth}<br><br>
+                <h5>Количество выполняющихся бизнес-процессов</h5>
+                ${tasks}<br><br>
             </div>
             <div class="col-sm">
                 <h5>Количество компьютеров</h5>
-                ${totalComputers}<br><br>
-                <h5>Количество новых компьютеров(за месяц)</h5>
-                ${addComputersMonth}<br><br>
-                <@security.authorize access="isAuthenticated()">
-                <h5>Количество не завершенных ремонтов пользователя</h5>
-                ${activeRepairsPersonal}<br><br>
-                </@security.authorize>
+                ${computers}<br><br>
             </div>
             <div class="col-sm">
                 <h5>Количество дополнительных устройств</h5>
-                ${totalEquipments}<br><br>
-                <h5>Количество новых доп. устройств(за месяц)</h5>
-                ${addEquipmentsMonth}<br><br>
-                <@security.authorize access="isAuthenticated()">
-                <h5>Количество завершенных ремонтов пользователя(за месяц)</h5>
-                ${endRepairsMonthPersonal}<br><br>
-                </@security.authorize>
+                ${equipments}<br><br>
             </div>
         </div>
     </div>

@@ -1,8 +1,8 @@
 package com.zlin.task.models;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -43,8 +43,8 @@ public class Task {
     private Computer computer;
     private Long computerId;
 
-    @OneToMany(mappedBy = "task")
-    private Set<SubprocessReport> sReports = new HashSet<SubprocessReport>();
+    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SubprocessReport> sReports = new ArrayList<SubprocessReport>();
 
     @Enumerated(EnumType.ORDINAL)
     private StatusType statusType = StatusType.EXECUTION;
@@ -226,14 +226,14 @@ public class Task {
     /**
      * @return Set<SubprocessReport> return the sReports
      */
-    public Set<SubprocessReport> getSReports() {
+    public List<SubprocessReport> getSReports() {
         return sReports;
     }
 
     /**
      * @param sReports the sReports to set
      */
-    public void setSReports(Set<SubprocessReport> sReports) {
+    public void setSReports(List<SubprocessReport> sReports) {
         this.sReports = sReports;
     }
 
