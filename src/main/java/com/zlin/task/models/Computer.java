@@ -74,11 +74,11 @@ public class Computer {
     }
     
 
-    @OneToMany(mappedBy = "computer", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(mappedBy = "computer", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Equipment> additionalEquipments = new HashSet<Equipment>();
 
-    @OneToMany(mappedBy = "comp", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    private Set<Repair> repairs = new HashSet<Repair>();
+    @OneToMany(mappedBy = "computer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Task> tasks = new HashSet<Task>();
 
     public long getId() {
         return this.id;
@@ -178,12 +178,47 @@ public class Computer {
         this.videocard = videocard;
     }
 
-    public Set<Repair> getRepairs() {
-        return this.repairs;
+
+    /**
+     * @return boolean return the cdRom
+     */
+    public boolean isCdRom() {
+        return cdRom;
     }
 
-    public void setRepairs(Set<Repair> repairs) {
-        this.repairs = repairs;
+    /**
+     * @return boolean return the buildInMonitor
+     */
+    public boolean isBuildInMonitor() {
+        return buildInMonitor;
+    }
+
+    /**
+     * @return Set<Equipment> return the additionalEquipments
+     */
+    public Set<Equipment> getAdditionalEquipments() {
+        return additionalEquipments;
+    }
+
+    /**
+     * @param additionalEquipments the additionalEquipments to set
+     */
+    public void setAdditionalEquipments(Set<Equipment> additionalEquipments) {
+        this.additionalEquipments = additionalEquipments;
+    }
+
+    /**
+     * @return Set<Task> return the tasks
+     */
+    public Set<Task> getTasks() {
+        return tasks;
+    }
+
+    /**
+     * @param tasks the tasks to set
+     */
+    public void setTasks(Set<Task> tasks) {
+        this.tasks = tasks;
     }
 
 }

@@ -28,12 +28,12 @@ public class Security extends WebSecurityConfigurerAdapter {
                     .disable()
                 .authorizeRequests()
                     //Доступ только для не зарегистрированных пользователей
-                    .antMatchers("/users/**").not().fullyAuthenticated()
+                    // .antMatchers().not().fullyAuthenticated()
                     //Доступ только для пользователей с ролью Администратор
-                    .antMatchers("/admin/**").hasRole("ADMIN")
-                    .antMatchers("/news").hasRole("USER")
+                    .antMatchers("/tasks/**").hasRole("ADMIN")
+                    .antMatchers("/tasks/details/**").hasRole("USER")
                     //Доступ разрешен всем пользователей
-                    .antMatchers("/", "/css/**", "/js/**", "/img/**", "/computers/details/**","/processes/**", "/computers/**").permitAll()
+                    .antMatchers("/", "/css/**", "/js/**", "/img/**", "/computers/**","/tasks/**", "/equipments/**").permitAll()
                 //Все остальные страницы требуют аутентификации
                 .anyRequest().authenticated()
                 .and()

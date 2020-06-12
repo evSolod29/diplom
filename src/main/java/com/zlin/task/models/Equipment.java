@@ -46,11 +46,8 @@ public class Equipment {
     private Computer computer;
     private Long computerId;
 
-    @OneToMany(mappedBy = "equipment", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    private Set<Repair> repairs = new HashSet<Repair>();
-
-    @OneToMany(mappedBy = "equipment", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    private Set<Process> processes  = new HashSet<Process>();
+    @OneToMany(mappedBy = "equipment", orphanRemoval = true)
+    private Set<Task> tasks = new HashSet<Task>();
 
     public Equipment() {
     }
@@ -148,18 +145,19 @@ public class Equipment {
         this.movement = movement;
     }
 
+
     /**
-     * @return Set<Repair> return the repairs
+     * @return Set<Task> return the tasks
      */
-    public Set<Repair> getRepairs() {
-        return repairs;
+    public Set<Task> getTasks() {
+        return tasks;
     }
 
     /**
-     * @param repairs the repairs to set
+     * @param tasks the tasks to set
      */
-    public void setRepairs(Set<Repair> repairs) {
-        this.repairs = repairs;
+    public void setTasks(Set<Task> tasks) {
+        this.tasks = tasks;
     }
 
 }

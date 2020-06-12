@@ -25,11 +25,11 @@ public class User implements UserDetails {
     @Transient
     private String passwordConfirm;
     
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Role> roles;
+    @OneToMany(mappedBy = "user", orphanRemoval = true)
+    private Set<SubprocessReport> subprocessReports;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Repair> repairs;
+    private Set<Role> roles;
 
     public User() {
     }
@@ -130,17 +130,17 @@ public class User implements UserDetails {
     }
 
     /**
-     * @return Set<Repair> return the repairs
+     * @return Set<SubprocessReport> return the subprocessReports
      */
-    public Set<Repair> getRepairs() {
-        return repairs;
+    public Set<SubprocessReport> getSubprocessReports() {
+        return subprocessReports;
     }
 
     /**
-     * @param repairs the repairs to set
+     * @param subprocessReports the subprocessReports to set
      */
-    public void setRepairs(Set<Repair> repairs) {
-        this.repairs = repairs;
+    public void setSubprocessReports(Set<SubprocessReport> subprocessReports) {
+        this.subprocessReports = subprocessReports;
     }
 
 }
