@@ -1,0 +1,1 @@
+delete from tasks where name == N"aa" and decription == N"aa";

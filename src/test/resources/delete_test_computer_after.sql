@@ -1,0 +1,1 @@
+delete from computers where inv_no = 122;
