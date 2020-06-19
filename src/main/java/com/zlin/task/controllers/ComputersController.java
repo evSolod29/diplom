@@ -101,4 +101,12 @@ public class ComputersController {
         }
         return "redirect:../details/"+id;
     }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable ("id") Long id, Model model) {
+        Computer comp = computersRepo.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Invalid id " + id));
+        computersRepo.delete(comp);
+        return "redirect: ../";
+    }
 }

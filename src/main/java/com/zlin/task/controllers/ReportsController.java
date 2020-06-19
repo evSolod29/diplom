@@ -68,7 +68,7 @@ public class ReportsController {
         SubprocessReport report = sReportsRepo.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("Invalid id " + id));
         if(report.getUser().getId() != currentUser.getId()){
-            throw new IllegalArgumentException("This report must be write only by" + report.getUser().getLastName() + " " + report.getUser().getFirstName());
+            throw new IllegalArgumentException("This report must be write only by " + report.getUser().getLastName() + " " + report.getUser().getFirstName());
         }
         Iterable<SubprocessReport> tmp = sReportsRepo.findAll(QSubprocessReport.subprocessReport.taskId.eq(report.getTask().getId())
             .and(QSubprocessReport.subprocessReport.subprocess.indexNumber.eq(report.getSubprocess().getIndexNumber()-1)));

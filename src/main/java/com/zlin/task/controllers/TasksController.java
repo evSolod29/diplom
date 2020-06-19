@@ -75,12 +75,10 @@ public class TasksController {
         Page<Task> page;
         //Поиск
         if(!search.isEmpty() && search != null){
-            String mod_search = search;
+            String mod_search = "%" + search + "%";
             page = tasksRepo.findAll(qTask.name.likeIgnoreCase(mod_search)
-                .or(qTask.computer.invNo.stringValue().like(mod_search))
-                .or(qTask.computer.name.likeIgnoreCase(mod_search))
-                .or(qTask.equipment.invNo.stringValue().like(mod_search))
-                .or(qTask.equipment.name.likeIgnoreCase(mod_search))
+            .or(qTask.computer.invNo.stringValue().likeIgnoreCase(mod_search))
+            .or(qTask.computer.name.likeIgnoreCase(mod_search))
                 , pageable);
         }
         else{
@@ -105,7 +103,7 @@ public class TasksController {
         model.addAttribute("users", userRepo.allUsers());
         return "tasks/add";
     }
-
+ 
     /**
      * Метод добавления задания
      * @param model - Объекты страницы
@@ -114,7 +112,7 @@ public class TasksController {
      */
     @PostMapping("/add")
     public String add(Model model, @RequestParam String jsondata) {
-        //System.out.println(jsondata + "\n\n\n");
+        System.out.println(jsondata + "\n\n\n");
         model.addAttribute("bProcesses", bProcessesRepo.findAll());
         model.addAttribute("computers", computersRepo.findAll());
         model.addAttribute("equipments", equipmentsRepo.findAll());
@@ -174,7 +172,7 @@ public class TasksController {
         List<SubprocessReport> sReports = new ArrayList<SubprocessReport>();
         tmpString = obj.get("users").toString();
         if(tmpString == "{}" || tmpString.isEmpty()){
-            errors.add("После выбора типа бизнес-процесса, необходимо нажать кнопку\"Назначить пользователей\" и на все подпроцессы назначить людей.");
+            errors.add("После выбора типа бизнес-процесса, необходимо нажать кнопку \"Назначить пользователей\" и на все подпроцессы назначить людей.");
         }
         else{
             JSONObject object = (JSONObject)obj.get("users");
@@ -368,6 +366,6 @@ public class TasksController {
         Task task = tasksRepo.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("Invalid id " + id));
         tasksRepo.delete(task);
-        return "redirect: /tasks/";
+        return "redirect: ../";
     }
 }

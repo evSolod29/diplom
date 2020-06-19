@@ -3,7 +3,7 @@
 
 <@c.page "Журнал бизнес-процессов" 3>
 <div class="topmenu mb-3">
-    <a href="/tasks/addtask">Начать бизнес-процесс</a>
+    <a href="/tasks/add">Начать бизнес-процесс</a>
 </div>
 <#if page.content?has_content>
 <table class=" text-center table table-bordered table-hover d-none d-sm-block" style="width:100%">
